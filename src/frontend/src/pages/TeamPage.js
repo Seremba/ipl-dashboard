@@ -27,14 +27,16 @@ export const TeamPage = () => {
        }
   return (
     <div className='TeamPage'>  
-    <div className='team-name-section'>
-         <h1>{team.teamName}</h1>
-    </div> 
-    <div className='win-loss-section'>Wins / Losses</div>
-    <div>
-         <MatchDetailsCard className='match-detail-section' teamName={team.teamName} match={team.matches[0]}/>
-    </div>
+      <div className='team-name-section'>
+          <h1 className='team-name'>{team.teamName}</h1>
+      </div> 
+      <div className='win-loss-section'>Wins / Losses</div>
+      <div className='match-detail-section'>
+          <h3>Latest Match</h3>
+          <MatchDetailsCard  teamName={team.teamName} match={team.matches[0]}/>
+      </div>
           {team.matches.slice(1).map(match => (<MatchSmallCard teamName={team.teamName} key={match.id} match={match}/>))}
+      <div><a href='#'>More...</a></div>
     </div>
   );
 }
