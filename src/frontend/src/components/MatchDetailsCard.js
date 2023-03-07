@@ -5,11 +5,12 @@ import './MatchDetailsCard.scss';
 export const MatchDetailsCard = ({match, teamName}) => {
   if(!match) return null;
   const otherTeam = match.team1 === teamName ? match.team2 : match.team1;
+  const isMatchWon = teamName === match.matchWinner;
   const otherTeamRoute = `/teams/${otherTeam}`
   return (
-    <div className="MatchDetailsCard"> 
+    <div className={isMatchWon ? 'MatchDetailsCard won-card': 'MatchDetailsCard lost-card'}> 
       <div>
-      <span className='vs'>vs</span>
+        <span className='vs'>vs</span>
          <h1> <Link to={otherTeamRoute}>{otherTeam}</Link> </h1>
          <h2 className='match-date'>{match.date}</h2>
          <h3 className='match-venue'>at {match.venue}</h3>
