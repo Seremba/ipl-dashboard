@@ -12,7 +12,7 @@ export const MatchPage = () => {
  useEffect(
   () => {
      const fetchMatches = async () => {
-       const response = await fetch(`https://seremba-scaling-system-g75v6gvvjj4hp4x9-8080.preview.app.github.dev/team/${teamName}/matches?year=${year}`);
+       const response = await fetch(`${process.env.REACT_APP_API_ROOT_URL}/team/${teamName}/matches?year=${year}`);
        const data = await response.json();
        console.log(data);
        setMatches(data);

@@ -14,7 +14,7 @@ export const TeamPage = () => {
   useEffect(
      () => {
         const fetchMatches = async () => {
-          const response = await fetch(`https://seremba-scaling-system-g75v6gvvjj4hp4x9-8080.preview.app.github.dev/team/${teamName}`);
+          const response = await fetch(`${process.env.REACT_APP_API_ROOT_URL}/team/${teamName}`);
           const data = await response.json();
           console.log(data);
           setTeam(data);
